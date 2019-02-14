@@ -1,0 +1,29 @@
+apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://172.31.153.194:8001
+  name: cluster.local
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://172.31.153.194:8001
+  name: icp-cluster1
+contexts:
+- context:
+    cluster: icp-cluster1
+    user: admin
+  name: ""
+- context:
+    cluster: cluster.local
+    namespace: default
+    user: admin
+  name: cluster.local-context
+current-context: cluster.local-context
+kind: Config
+preferences: {}
+users:
+- name: admin
+  user:
+    client-certificate: /etc/kubeconf/kubecfg.crt
+    client-key: /etc/kubeconf/kubecfg.key
+    token: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoibm50NHl2ZDUxbzJlMjB2bWJ0aXkiLCJyZWFsbU5hbWUiOiJjdXN0b21SZWFsbSIsInVuaXF1ZVNlY3VyaXR5TmFtZSI6ImFkbWluIiwiaXNzIjoiaHR0cHM6Ly9teWNsdXN0ZXIuaWNwOjk0NDMvb2lkYy9lbmRwb2ludC9PUCIsImF1ZCI6ImNmM2E2ZDMwMGY0NmNjMGIwMzc1ZDBkM2IzY2M1N2U0IiwiZXhwIjoxNTQyMTAwNjQ4LCJpYXQiOjE1NDIwNzE4NDgsInN1YiI6ImFkbWluIiwidGVhbVJvbGVNYXBwaW5ncyI6W119.b_PKSOWyxGJCoiJhEAIw-omTIaScLlqTSKsRP1yZc7KWeskUWLtPdXo-LFkc3jCroedgs-1uhus-lYToRCXyOd1AndW0tGp32wg1uO-xLu1ogcuw9XBJc42TY_7Pks52Ur4knI4bsy9V44YhvoHpFeGhPA7chiv_5WcBTQ0FdrjT06Jy-VKyStmJQ7b4eSlY0dcL1k8MIP0qKdmNs4mbic35Nsj33wldnQFYvGxwK65iVtCuU-MOmTELQ2nWxICKryM6TGZ3ogl4u1eK7STNlGZQsrITsHja7NXmNMSwCno1z7NWtwA_neuewwve4YkU3GBPxcoHagr3GSVHHsK19w
